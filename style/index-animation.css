@@ -1,0 +1,35 @@
+.dev-1 {
+  animation-name: image-animation;
+  animation-duration: 0.09s;
+  animation-direction: inherit;
+  animation-fill-mode: forwards;
+  animation-iteration-count: inherit;
+  animation-timing-function: linear;
+}
+
+.dev-2 {
+  animation-name: image-animation;
+  animation-duration: 0.09s;
+  animation-direction: inherit;
+  animation-fill-mode: forwards;
+  animation-iteration-count: inherit;
+  animation-timing-function: linear;
+}
+
+.dev-3 {
+  animation-name: image-animation;
+  animation-duration: 0.09s;
+  animation-direction: inherit;
+  animation-fill-mode: forwards;
+  animation-iteration-count: inherit;
+  animation-timing-function: linear;
+}
+
+@keyframes image-animation {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
