@@ -1,31 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style/user-home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Home Page</title>
 </head>
+
 <body>
-    <div class="card-body">
+    <div>
+        <div class="main-container">
+            <div class="navigation">
+                <div class="profile">
+                    <img class="user-image" src="../static/src/img/dev2.jpg" alt="user-image">
+                    <p>Welcome User</p>
+                </div>
 
+                <div class="options">
+                    <table class="optoin-table">
+                        <td class="table-data" id="question-bank">Question Bank</td>
+                        <td class="table-data" id="star-question">Star Questions</td>
+                        <td class="table-data">GATE</td>
+                        <td class="table-data" id="search">Search</td>
+                        <td class="table-data">Add Quesions</td>
+                    </table>
+                </div>
 
-        <div class="card-header">
-            <p class="book-icon"><i class="fa-solid fa-book"></i></p>
+                <div class="settings">
+                    <p>Settings</p>
+                </div>
+            </div>
+            <div class="view">
+                <!--components will load here-->
+            </div>
+
         </div>
-        <div class="details">
-            <h1 class="subject-name">Subject Name</h1>
-            <p class="chapter">Total Chapter: 5</p>
-            <p class="question">Total Question: 100</p>
-
-            <button class="button" type="submit">View</button>
-        </div>
-
-
-
     </div>
+
+
+    <script src="../script/JQuery/jquery-3.7.1.js"></script>
+    <script>
+        $("#question-bank").click(function () { $(".view").load("../pages/components/question-card.html") }); //view question-card
+
+        $("#search").click(function () { $(".view").load("../pages/components/search-book.html") }); //view search-book
+
+        $("#star-question").click(function () { $(".view").load("../pages/components/star-question.html") });
+    </script>
+
 </body>
+
 </html>
