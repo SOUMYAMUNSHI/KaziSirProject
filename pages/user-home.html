@@ -30,12 +30,13 @@
                         <td class="table-data" id="star-question">Star Questions</td>
                         <td class="table-data">GATE</td>
                         <td class="table-data" id="search">Search</td>
-                        <td class="table-data">Add Quesions</td>
+                        <td class="table-data" id="search">Add Question</td>
                     </table>
                 </div>
 
                 <div class="settings">
-                    <p>Settings</p>
+                    <p class="admin-pannel" id="admin-pannel">Admin Pannel</p>
+                    <p class="log-out">Log out</p>
                 </div>
             </div>
             <div class="view">
@@ -48,11 +49,13 @@
 
     <script src="../script/JQuery/jquery-3.7.1.js"></script>
     <script>
-        $("#question-bank").click(function () { $(".view").load("../pages/components/question-card.html") }); //view question-card
+        $("#question-bank").click(function () { $(".view").load("./components/question-card.html") }); //view question-card
 
-        $("#search").click(function () { $(".view").load("../pages/components/search-book.html") }); //view search-book
+        $("#search").click(function () { $(".view").load("./components/search-book.html") }); //view search-book
 
-        $("#star-question").click(function () { $(".view").load("../pages/components/star-question.html") });
+        $("#star-question").click(function () { $(".view").load("./components/star-question.html") });
+
+        $("#admin-pannel").click(function () { $(".view").load("./components/admin-login.html") });
     </script>
 
 </body>

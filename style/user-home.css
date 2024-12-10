@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Maven+Pro:wght@400..900&family=Nanum+Gothic&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Markazi+Text:wght@400..700&family=Maven+Pro:wght@400..900&family=Nanum+Gothic&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
   margin: 0px;
@@ -84,7 +86,7 @@ body {
 }
 
 .navigation {
-  width: 25%;
+  width: 20%;
   background-color: #2a9d8f;
   display: flex;
   flex-direction: column;
@@ -154,12 +156,23 @@ body {
   border-bottom: 2px solid #2a9d8f;
 }
 
-.settings > p:hover {
+.settings > p:nth-child(2) {
+  color: #eb2632;
+  font-weight: bold;
+  border: none;
+}
+
+.settings > p > a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.settings > .admin-pannel:hover {
   border-bottom: 2px solid white;
 }
 
 .view {
-  width: 75%;
+  width: 80%;
   background-color: #f3f3f3;
   overflow: auto;
 }
@@ -167,7 +180,8 @@ body {
 .subject {
   display: flex;
   /* gap:20px; */
-  padding: 20px;
+  padding-top: 25px;
+  padding-left: 56px;
   flex-wrap: wrap;
 }
 
@@ -268,9 +282,9 @@ body {
   background-color: #775ada;
 }
 
-.star-select > option {
-  /* padding: 5px; */
-}
+/*.star-select > option {
+  padding: 5px;
+}*/
 
 .view-question {
   display: flex;
@@ -284,7 +298,7 @@ body {
 .star-questions {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 55%;
   height: 85vh;
 
   overflow: auto;
@@ -296,11 +310,11 @@ body {
   /* background-color: rebeccapurple; */
 }
 
-.star-questions::-webkit-scrollbar-track{
-  background-color:  #e3e3e3;
+.star-questions::-webkit-scrollbar-track {
+  background-color: #e3e3e3;
 }
-.star-questions::-webkit-scrollbar-thumb{
-  background-color:  #606470;
+.star-questions::-webkit-scrollbar-thumb {
+  background-color: #606470;
   border-radius: 5px;
 }
 
@@ -310,7 +324,7 @@ body {
   align-items: center;
   background-color: #f8fcfb;
   margin: 10px;
-  height: 50px;
+  height: auto;
 }
 
 .star {
@@ -336,33 +350,113 @@ body {
   font-size: 19px;
 }
 
-.answer{
+.answer {
   display: flex;
-  width: 40%;
+  width: 45%;
   justify-content: center;
   align-items: center;
+
+  font-family: "Markazi Text", serif;
+  font-optical-sizing: 12;
+  font-weight: 500;
+  font-style: normal;
+
+  font-size: 20px;
 }
 
-.answer-output{
-  width:90%;
-  height: 70%;
-  background-color: #d9dad7;
-  border-radius: 5px;
-  text-align: center;
+.answer-output {
+  display: flex;
+  background-color: #eeeeee;
+  width: 95%;
+  height: 80vh;
+  padding: 10px;
+  justify-content: center;
+
+  overflow: auto;
 }
 
-.answer-output > p{
-  margin-top: 90px;
-  font-size: 18px;
-}
-/*
 .question-body {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  /* height: auto; */
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 10px;
 
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
- */
+
+.question-body > img {
+  width: 400px;
+}
+
+/*This style is for div view-image to view question-image*/
+
+.view-image {
+  position: absolute;
+  top: 0px;
+  z-index: 10;
+  background-color: #e3e3e3;
+  width: 100%;
+  height: 100%;
+}
+
+/*This style is for admin-login page style*/
+
+.admin-access {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.access {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  background-color: white;
+  border-radius: 5px;
+  height: 150px;
+
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.access > input {
+  width: 300px;
+  height: 40px;
+
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.access > button {
+  width: 100px;
+  align-self: center;
+  margin-top: 20px;
+  background-color: #6643b5;
+  border: none;
+  height: 40px;
+  border-radius: 5px;
+  color: white;
+
+  font-size: 15px;
+  cursor: pointer;
+
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.access > button:hover {
+  background-color: #8200ff;
+}

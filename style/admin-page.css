@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.admin-pannel {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
+  font-family: "Noto Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+
+  z-index: 1;
+}
+
+.content {
+  width: 20%;
+  background-color: #393e46;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content > p {
+  margin: 20px 0px 0px 00px;
+  color: white;
+  cursor: pointer;
+  border-bottom: 2px solid #393e46;
+}
+
+.content > p:hover {
+  border-bottom: 2px solid white;
+}
+
+.content-view {
+  width: 80%;
+  background-color: #e0ebeb;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.password-card {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+  border-radius: 5px;
+  background-color: #495664;
+  height: 70px;
+  width: 230px;
+  gap: 10px;
+  text-align: start;
+  border: 1px solid #111f4d;
+
+  margin: 20px;
+  cursor: pointer;
+}
+
+.password-card > p {
+  margin: 0px;
+}
+
+.icon {
+  background-color: #e0ebeb;
+  /* padding: 10px; */
+  height: 100%;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  color: #263849;
+  font-size: 50px;
+}
+
+.text-content {
+  color: #fcfcfc;
+}
+
+.view-option {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+}
+
+/*This style is for pop-up message*/
+
+.pop-up {
+  z-index: 10;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.change-password {
+  background-color: white;
+  padding: 10px;
+  width: 400px;
+  height: 250px;
+  border-radius: 2px;
+
+  font-family: "Noto Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.form > p {
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.form > input {
+  height: 40px;
+  border-radius: 0;
+  border: 1px solid gray;
+
+  margin-bottom: 20px;
+  font-family: "Noto Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.form > button {
+  width: 25%;
+  align-self: center;
+
+  font-family: "Noto Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+
+  border: 0px;
+  padding: 10px;
+  background-color: #5a37c3;
+  border-radius: 2px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.form > button:hover {
+  background-color: #421b9b;
+}
+
+.close-button {
+  /* align-self: flex-start; */
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+
+  margin-top: -25%;
+}
+/*Change displat property suing java script*/
+.display {
+  display: none;
+}
