@@ -8,8 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script src="./script/JQuery/jquery-3.7.1.js"></script>
+
     <link rel="stylesheet" href="./style/index-animation.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--Animation Library-->
+
     <title>Home Page</title>
 </head>
 
@@ -17,18 +23,40 @@
     <nav class="nav-bar">
         <a class="button" id="home" nhref="#about">Home</a>
         <a class="button" id="about-us">About us</a>
+        <a class="button" id="login">Login</a>
     </nav>
 
     <div class="hero">
         <div class="intro">
+
+            <!-- <script src="./script/Animation/three.min.js"></script>
+            <script src="./script/Animation/vanta.globe.min.js"></script>
+            <script>
+                VANTA.GLOBE({
+                    el: "#your-element-selector",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 1.00
+                })
+            </script> -->
             <div class="intro-container">
-                <p>This is the question bank for CSE</p>
+                <div class="animate__animated animate__fadeInDownBig animation_one">Welcome to the Question Bank!</div>
             </div>
+
+            <div class="animate__animated animate__fadeIn animation_two">Learn Better, Prepare Smarter</div>
+            <div class="text animate__animated animate__fadeIn animation_three">A vast collection of subject-specific
+                questions.</div>
+            <div class="text animate__animated animate__fadeIn animation_three">Previous years' exam papers for better
+                practice.</div>
         </div>
 
-        <div class="margin"><!--This is for divider border--></div>
+        <!-- <div class="margin">This is for divider border</div> -->
 
-        <div class="login">
+        <!-- <div class="login">
 
             <div class="login-div">
                 <h2 class="login-intro">Login Here</h2>
@@ -41,7 +69,7 @@
 
             </div>
 
-        </div>
+        </div> -->
     </div>
 
 
@@ -61,7 +89,7 @@
         <!-- <div class="about-us">
             <p>We are the Developers</p>
         </div> -->
-        <p class="devs-intro">We Have Developed This Site</p>
+        <!-- <p class="devs-intro">We Have Developed This Site</p>
         <div class="devs-images">
             <div class="dev"><img class="image" id="dev-1" src="./static/src/img/dev1.jpg" alt="dev-image" height=50px>
             </div>
@@ -69,7 +97,7 @@
             </div>
             <div class="dev"><img class="image" id="dev-3" src="./static/src/img/dev1.jpg" alt="dev-img" width=50px>
             </div>
-        </div>
+        </div> -->
 
 
 
@@ -78,12 +106,12 @@
 
 
     </footer>
-
+<!-- 
     <div class="licence">
         <p class="name">Kazi Sir</p>
         <p>&copy; Copyright 2024 My Website.</p>
         <p>All rights reserved. PoWered By <b>KAZI SIR</b></p>
-    </div>
+    </div> -->
 
     <script>
         document.getElementById("about-us").addEventListener("click", () => {
@@ -100,7 +128,7 @@
         });
 
         document.getElementById("dev-1").addEventListener("mouseout", () => {
-            document.getElementById("dev-1").classList.remove("dev-1")  ;
+            document.getElementById("dev-1").classList.remove("dev-1");
         });
 
         document.getElementById("dev-2").addEventListener("mouseover", () => {
@@ -119,8 +147,25 @@
             document.getElementById("dev-3").classList.remove("dev-3");
         });
 
-        
+
     </script>
+
+    <!--This scripts for animation-->
+    <script src="./script/Animation/three.min.js"></script>
+    <script src="./script/Animation/vanta.waves.min.js"></script>
+    <script>
+        VANTA.WAVES({
+            el: ".footer",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00
+        })
+    </script>
+
 </body>
 
 </html>

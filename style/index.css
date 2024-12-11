@@ -3,15 +3,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Maven+Pro:wght@400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Maven+Pro:wght@400..900&family=Nanum+Gothic&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+/*Font for Animation*/
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap");
+
 body {
   /* font-family: Arial, sans-serif; */
   margin: 0;
   padding: 0;
-  background-color: #e7eaf6;
+  background-color: white;
 }
 
 .nav-bar {
-  background-color: #393e46;
+  background-color: #0092ca;
   padding: 20px;
   position: sticky;
   top: 0px;
@@ -27,26 +32,80 @@ body {
   font-style: normal;
   font-variation-settings: "wdth" 100;
 
-  border-bottom: 2px solid white;
+  /* border-bottom: 2px solid white; */
   margin-right: 20px;
 }
 
 .hero {
   display: flex;
   flex-direction: row;
-  height: 90vh;
+  height: 80vh;
   margin-top: 20px;
   margin-bottom: 20px;
+  justify-content: center;
 }
 
 .intro {
-  flex-grow: 6;
-  margin-top: 10px;
+  /* flex-grow: 6;
+  margin-top: 10px; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .intro-container {
   padding: 10px;
 }
+
+/*Animation div design start from here*/
+
+.animation_one {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
+
+  font-size: 80px;
+  position: relative;
+  z-index: -100;
+
+  color: #400082;
+}
+
+.animation_two {
+  font-family: "Martel Sans", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #1d1716;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+.animation_two {
+  animation-delay: 1s;
+  animation-duration: 0.1s;
+
+  margin-bottom: 10px;
+  position: relative;
+  z-index: -100;
+}
+
+.text {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: oblique;
+  font-variation-settings: "wdth" 100;
+  position: relative;
+  z-index: -100;
+
+  animation-delay: 1.5s;
+}
+
+/*Animation div design end here*/
 
 .margin {
   border-right: 1px solid #698474;
@@ -133,7 +192,7 @@ body {
 }
 
 .footer {
-  background-color: #393e46;
+  /* background-color: #393e46; */
   display: flex;
   flex-direction: column;
   height: 50vh;
@@ -159,7 +218,7 @@ body {
 
 .social-media-app {
   font-size: 30px;
-  color: #5f6769;
+  color: white;
 }
 
 .about-us {
