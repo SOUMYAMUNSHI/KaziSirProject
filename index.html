@@ -13,36 +13,29 @@
 
     <link rel="stylesheet" href="./style/index-animation.css">
 
+    <!--Icon SDN start-->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--Above is Bootsrap icon CDN-->
+
+    <!--Icon SDN end-->
+
+    <!--Animation Library start-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <!--Animation Library-->
+    <!--Animation Library end-->
 
     <title>Home Page</title>
 </head>
 
-<body>
+<body id="body">
     <nav class="nav-bar">
-        <a class="button" id="home" nhref="#about">Home</a>
+        <a class="button" id="home">Home</a>
         <a class="button" id="about-us">About us</a>
         <a class="button" id="login">Login</a>
     </nav>
 
     <div class="hero">
         <div class="intro">
-
-            <!-- <script src="./script/Animation/three.min.js"></script>
-            <script src="./script/Animation/vanta.globe.min.js"></script>
-            <script>
-                VANTA.GLOBE({
-                    el: "#your-element-selector",
-                    mouseControls: true,
-                    touchControls: true,
-                    gyroControls: false,
-                    minHeight: 200.00,
-                    minWidth: 200.00,
-                    scale: 1.00,
-                    scaleMobile: 1.00
-                })
-            </script> -->
             <div class="intro-container">
                 <div class="animate__animated animate__fadeInDownBig animation_one">Welcome to the Question Bank!</div>
             </div>
@@ -54,10 +47,45 @@
                 practice.</div>
         </div>
 
-        <!-- <div class="margin">This is for divider border</div> -->
+        <div class="owner">
+            <div class="owner-info">
+                <div class="owner-image_div animate__animated animate__fadeInLeftBig"><img class="owner-image" src="./static/src/img/dev2.jpg" alt="owner-img"></div>
+                <p class="owner-intro animate__animated animate__fadeInRightBig">Kazi Sir Website owner, a dedicated teacher, managing a comprehensive question bank with various
+                    subjects and past year questions for students</p>
+            </div>
+        </div>
 
-        <!-- <div class="login">
+    </div>
 
+
+
+
+    <footer class="footer">
+        <div class="developer-div">
+            <div class="dev dev-1"><img class="dev-image" src="./static/src/img/dev2.jpg" alt="dev-image">
+                <p>Priyatosh Sarkar</p>
+                <p>Designed and developed both front-end and back-end of websites</p>
+            </div>
+            <div class="dev dev-1"><img class="dev-image" src="./static/src/img/dev2.jpg" alt="dev-image">
+                <p>Priyatosh Sarkar</p>
+                <p>Designed and developed both front-end and back-end of websites</p>
+            </div>
+            <div class="dev dev-1"><img class="dev-image" src="./static/src/img/dev2.jpg" alt="dev-image">
+                <p>Priyatosh Sarkar</p>
+                <p>Designed and developed both front-end and back-end of websites</p>
+            </div>
+            <div class="dev dev-1"><img class="dev-image" src="./static/src/img/dev2.jpg" alt="dev-image">
+                <p>Priyatosh Sarkar</p>
+                <p>Designed and developed both front-end and back-end of websites</p>
+            </div>
+        </div>
+    </footer>
+
+    <!--Pop-up login-->
+    <div id="login_container" class="login hidden">
+        <!--login form will load here-->
+        <div class="login-container" class="login-container">
+            <div id="login_close" class="login_close"><i class="bi bi-x"></i></div>
             <div class="login-div">
                 <h2 class="login-intro">Login Here</h2>
 
@@ -68,50 +96,9 @@
                 </form>
 
             </div>
-
-        </div> -->
-    </div>
-
-
-
-
-    <footer class="footer">
-
-        <div class="social-media">
-            <a class="youtube" href=""><i class="fa-brands fa-youtube social-media-app"></i></a>
-            <a class="facebook" href=""><i class="fa-brands fa-facebook social-media-app"></i></a>
-            <a class="mail" href=""><i class="fa-solid fa-envelope social-media-app"></i></a>
-            <a class="telegram" href=""><i class="fa-brands fa-telegram social-media-app"></i></a>
         </div>
 
-        <!-- <hr class="devider"> -->
-
-        <!-- <div class="about-us">
-            <p>We are the Developers</p>
-        </div> -->
-        <!-- <p class="devs-intro">We Have Developed This Site</p>
-        <div class="devs-images">
-            <div class="dev"><img class="image" id="dev-1" src="./static/src/img/dev1.jpg" alt="dev-image" height=50px>
-            </div>
-            <div class="dev"><img class="image" id="dev-2" src="./static/src/img/dev2.jpg" alt="dev-img" width=50px>
-            </div>
-            <div class="dev"><img class="image" id="dev-3" src="./static/src/img/dev1.jpg" alt="dev-img" width=50px>
-            </div>
-        </div> -->
-
-
-
-
-
-
-
-    </footer>
-<!-- 
-    <div class="licence">
-        <p class="name">Kazi Sir</p>
-        <p>&copy; Copyright 2024 My Website.</p>
-        <p>All rights reserved. PoWered By <b>KAZI SIR</b></p>
-    </div> -->
+    </div>
 
     <script>
         document.getElementById("about-us").addEventListener("click", () => {
@@ -121,6 +108,18 @@
         document.getElementById("home").addEventListener("click", () => {
             const container = document.querySelector(".hero");
             container.scrollIntoView({ behavior: "smooth" }); //scroll to footer
+        });
+
+        document.getElementById("login").addEventListener("click", () => {
+            document.getElementById("login_container").classList.remove("hidden");
+            document.getElementById("body").classList.add("disable-scrollbar");
+
+        });
+
+        document.getElementById("login_close").addEventListener("click", () => {
+            document.getElementById("login_container").classList.add("hidden");
+            document.getElementById("body").classList.remove("disable-scrollbar");
+
         });
 
         document.getElementById("dev-1").addEventListener("mouseover", () => {
