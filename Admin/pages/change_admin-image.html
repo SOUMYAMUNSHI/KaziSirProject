@@ -1,0 +1,17 @@
+<div class="pop-up">
+    <div class="change-image">
+        <p class="image-heading">Change Admin Image</p>
+        <input class="image-input" type="file" accept="Image/png, Image/jpg" id="upload">
+        <label for="upload" class="upload">Upload File</label>
+        <button class="image-change">Change Image</button>
+    </div>
+
+    <div id="close-button" class="close-button"><i class="bi bi-x"></i></div>
+</div>
+
+<script>
+    //to close the pop-up
+    $("#close-button").click(function () {
+        $(".pop-up").addClass("display");
+    });
+</script>
