@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2024 at 10:49 AM
+-- Generation Time: Dec 15, 2024 at 10:51 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -44,9 +44,9 @@ CREATE TABLE `chapter` (
 CREATE TABLE `login` (
   `ID` bigint(20) UNSIGNED NOT NULL,
   `Login_ID` varchar(255) NOT NULL,
-  `Password` char(10) NOT NULL,
-  `In_Time` varchar(10) DEFAULT NULL,
-  `Out_Time` varchar(10) DEFAULT NULL
+  `Password` char(255) NOT NULL,
+  `In_Time` varchar(20) DEFAULT NULL,
+  `Out_Time` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -54,7 +54,7 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`ID`, `Login_ID`, `Password`, `In_Time`, `Out_Time`) VALUES
-(1, 'admin', 'admin', NULL, NULL);
+(1, '$2y$10$r.AdAFUE3P6GtL8f7v8oOupr/lq3yRuh6CF2lavPcSA8GIVa9SEO.', '$2y$10$6Fv9OFBgFJBs/BLXcIiML.jJEG50WddJyy62ON4BKi4WpX7XvHXiy', '2024-12-14 22:07:55', NULL);
 
 -- --------------------------------------------------------
 
