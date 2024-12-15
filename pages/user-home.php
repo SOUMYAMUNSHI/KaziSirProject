@@ -20,6 +20,10 @@ if (isset($_SESSION["username"])) //verifying session
             integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        <!--Lottie animation library to load animation start-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+        <!--Lottie animation library to load animation start-->
+
         <title>Home Page</title>
     </head>
 
@@ -35,7 +39,7 @@ if (isset($_SESSION["username"])) //verifying session
                     <div class="options">
                         <table class="optoin-table">
                             <td class="table-data" id="question-bank">Question Bank</td>
-                            <td class="table-data" id="star-question">Star Questions</td>
+                            <!-- <td class="table-data" id="star-question">Star Questions</td> -->
                             <td class="table-data">GATE</td>
                             <td class="table-data" id="search">Search</td>
                             <td class="table-data" id="search">Add Question</td>
@@ -51,6 +55,14 @@ if (isset($_SESSION["username"])) //verifying session
                 </div>
                 <div class="view">
                     <!--components will load here-->
+
+                    <!--book animation start-->
+                    <div id="animation-div" class="animation-div" style="width:500px;">
+                        <div id="animation"></div>
+                    </div>
+                    <!--book animation end-->
+
+
                 </div>
 
 
@@ -63,14 +75,25 @@ if (isset($_SESSION["username"])) //verifying session
 
             function view_queston() { window.open("./view-question.html", "_blank") }; //load the view-question page
 
-            $("#question-bank").click(function () { $(".view").load("./components/question-card.html") }); //view question-card
+            $("#question-bank").click(function () {
+                $("#animation-div").addClass("hidden"); //to hide the book animation (opotional)
+                $(".view").load("./components/question-card.php");
+            }); //view question-card
 
-            $("#search").click(function () { $(".view").load("./components/search-book.html") }); //view search-book
+            $("#search").click(function () { $(".view").load("./components/search-book.php") }); //view search-book
 
             $("#star-question").click(function () { $(".view").load("./components/star-question.html") });
 
             $("#admin-pannel").click(function () { $(".view").load("./components/admin-login.html") });
 
+
+            var animation = lottie.loadAnimation({
+                container: document.getElementById('animation'), // Target container
+                renderer: 'svg', // Render type ('svg', 'canvas', or 'html')
+                loop: true, // Animation loop (true/false)
+                autoplay: true, // Autoplay the animation
+                path: '../script/animation/book.json' // Path to your animation JSON file
+            });
         </script>
 
     </body>
