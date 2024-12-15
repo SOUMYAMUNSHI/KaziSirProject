@@ -147,16 +147,26 @@ body {
   font-weight: 500;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.settings > p {
+.settings > .admin-pannel {
   color: aliceblue;
   cursor: pointer;
   margin-bottom: 20px;
   border-bottom: 2px solid #0092ca;
 }
 
-.settings > p:nth-child(2) { /*log-out button*/
+.settings > form{
+margin-bottom: 20px;
+}
+
+.settings > form > .log-out {
+  /*log-out button*/
   color: white;
   font-weight: bold;
   border: none;
@@ -165,9 +175,17 @@ body {
   padding: 10px;
 
   border-radius: 2px;
+
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  
+  cursor: pointer;
 }
 
-.settings > p:nth-child(2):hover{
+.settings > p:nth-child(2):hover {
   background-color: #cf1b1b;
 }
 
@@ -385,8 +403,8 @@ body {
   overflow: auto;
 }
 
-.answer-body{
-  padding:10px;
+.answer-body {
+  padding: 10px;
   text-align: start;
 }
 

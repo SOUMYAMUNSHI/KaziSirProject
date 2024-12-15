@@ -44,12 +44,15 @@ if (isset($_SESSION["username"])) //verifying session
 
                     <div class="settings">
                         <p class="admin-pannel" id="admin-pannel">Admin Pannel</p>
-                        <p class="log-out">Log out</p>
+                        <form method="post" action="../php/logout/logout.php">
+                            <button id="log-out" class="log-out" type="submit">Log out</button>
+                        </form>
                     </div>
                 </div>
                 <div class="view">
                     <!--components will load here-->
                 </div>
+
 
             </div>
         </div>
