@@ -6,18 +6,11 @@ if (isset($_SESSION["username"])) {
     $subject_stmt = $pdo_conn->prepare("SELECT `SubCode`, `SubName` FROM `subject`"); //preparing ptatement
     $subject_stmt->execute(); //executing statement
 
-    $chapter_stmt = $pdo_conn->prepare("SELECT `ChName` FROM `chapter` WHERE `SubCode` = :SubCode"); //prepare statement for fetch chapter name
-    $chapter_stmt->bindValue(":SubCode", "DS1");
-    $chapter_stmt->execute(); //execute chapter prepare statement
-
-    $topic_stmt = $pdo_conn->prepare("SELECT `TopicName` FROM `topic`"); //prepare statement for search topic
-    $topic_stmt->execute(); //execute prepare statement for topic
-
     // $questionType_stmt = $pdo_conn->prepare("")
 
 
 
-    ?>
+?>
 
     <div class="search">
         <div class="search-component">
@@ -27,57 +20,103 @@ if (isset($_SESSION["username"])) {
 
                 while ($subjects = $subject_stmt->fetch()) {
                     //to view all subject as option
-                    ?>
-                    <option value="<?php echo $subjects["SubCode"]; //subject code as value ?>">
-                        <?php echo $subjects["SubName"]; //view subject name ?>
+                ?>
+                    <option value="<?php echo $subjects["SubCode"]; //subject code as value 
+                                    ?>">
+                        <?php echo $subjects["SubName"]; //view subject name 
+                        ?>
                     </option>
-                    <?php
+            <?php
                 }
-}
-?>
-        </select>
-        <select class="select" name="chapter-name" id="chapter-name">
-            <option value="subject1">Chapter Name</option>
-
-            <?php
-            while ($chapters = $chapter_stmt->fetch()) {
-                //to view all chapter as option
-                ?>
-                <option value="<?php echo $chapters["ChName"]; //chapter name as value ?>">
-                    <?php echo $chapters["ChName"]; //view chapter name ?>
-                </option>
-                <?php
             }
             ?>
+            </select>
 
-        </select>
-        <select class="select" name="topic-name" id="topic-name">
-            <option value="subject1">Topic Name</option>
-            <?php
-            while ($topics = $topic_stmt->fetch()) {
-                ?>
-                <option value="<?php echo $topics["TopicName"]; //topic name as value ?>">
-                    <?php echo $topics["TopicName"]; //topic name as value ?>
-                </option>
-                <?php
-            }
-            ?>
-        </select>
-        <select class="select" name="question-type" id="question-type">
-            <option value="subject1">Question Type</option>
-            <option value="subject1">Subject1</option>
-            <option value="subject1">Subject1</option>
-            <option value="subject1">Subject1</option>
-            <option value="subject1">Subject1</option>
-            <option value="subject1">Subject1</option>
-        </select>
-        <button class="search-button">Search</button>
+
+
+
+
+            <select class="select" name="chapter-name" id="chapter-name">
+                <option value="subject1">Chapter Name</option>
+
+                <!--The options will load here-->
+
+            </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <select class="select" name="topic-name" id="topic-name">
+                <option value="subject1">Topic Name</option>
+
+                <!--The topics will load-->
+
+            </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <select class="select" name="question-type" id="question-type">
+                <option value="subject1">Question Type</option>
+                <option value="subject1">Subject1</option>
+                <option value="subject1">Subject1</option>
+                <option value="subject1">Subject1</option>
+                <option value="subject1">Subject1</option>
+                <option value="subject1">Subject1</option>
+            </select>
+            <button class="search-button">Search</button>
+        </div>
+
     </div>
 
-</div>
 
 
-<script src="../../script/JQuery/jquery-3.7.1.js"></script> <!--Addding Jquery-->
-<script>
-    $("#subject-name").change(function () { });
-</script>
+
+
+    <!--script to dynamically load the drop down-->
+
+    <script src="../script/JQuery/jquery-3.7.1.js"></script> <!--Addding Jquery-->
+    <script>
+        //To change the @option dropdown using @subject dropdown
+        $("#subject-name").change(function() /* This function will rul when the subject dropdown will change or any optoin is selected */ {
+            const subjectCode = $("#subject-name").val(); //fetching the value of the sbject dropdown
+            $("#chapter-name").load(`../pages/components/sub_components/chapter.php?subCode=${subjectCode}`); //sending the chapter code to the chapter.php
+        });
+
+
+        //to change @topic dropdoen using the @option dropdown
+
+        $("#chapter-name").change(function(){
+            const chapterCode = $("#chapter-name").val();
+            $("#topic-name").load(`../pages/components/sub_components/topic.php?chCode=${chapterCode}`);
+        })
+    </script>
