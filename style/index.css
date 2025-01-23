@@ -257,7 +257,8 @@ body {
 
 .dev-image {
   border-radius: 50%;
-  /* border:2px solid #455d7a; */
+  width:100px;
+  border:2px solid white;
 }
 
 .owner {
