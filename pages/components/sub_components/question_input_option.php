@@ -32,13 +32,13 @@ $subject_stmt->execute(); //executing statement
             <?php
             while ($subjects = $subject_stmt->fetch()) {
                 //to view all subject as option
-            ?>
-                <option value="<?php echo $subjects["SubCode"]; //subject code as value 
-                                ?>">
+                ?>
+                <option value="<?php echo urlencode($subjects["SubCode"]); //subject code as value, urlencode() is used to remove blank space
+                    ?>">
                     <?php echo $subjects["SubName"]; //view subject name 
-                    ?>
+                        ?>
                 </option>
-            <?php
+                <?php
             }
             ?>
         </select>
@@ -103,7 +103,7 @@ $subject_stmt->execute(); //executing statement
 
 
 <!--Adding related javascript for animation and other-->
-<script src="../script/question_input.js"></script>
+<script src="../script/question_input.js"></script> <!--To add question types-->
 
 
 
@@ -112,7 +112,7 @@ $subject_stmt->execute(); //executing statement
 <!--script to dynamically load the drop down-->
 <script>
     //To change the @option dropdown using @subject dropdown
-    $("#input-subject").change(function() /* This function will rul when the subject dropdown will change or any optoin is selected */ {
+    $("#input-subject").change(function () /* This function will rul when the subject dropdown will change or any optoin is selected */ {
         const subjectCode = $("#input-subject").val(); //fetching the value of the sbject dropdown
         $("#input-chapter").load(`../pages/components/sub_components/chapter.php?subCode=${subjectCode}`); //sending the chapter code to the chapter.php
     });
@@ -120,7 +120,7 @@ $subject_stmt->execute(); //executing statement
 
     //to change @topic dropdoen using the @option dropdown
 
-    $("#input-chapter").change(function() {
+    $("#input-chapter").change(function () {
         const chapterCode = $("#input-chapter").val();
         $("#input-topic").load(`../pages/components/sub_components/topic.php?chCode=${chapterCode}`);
     })

@@ -3,7 +3,7 @@
 session_start();
 if (isset($_SESSION["username"])) {
 
-    $subjectCode = $_REQUEST["subCode"];
+    $subjectCode = urldecode($_REQUEST["subCode"]); //urldecode() is used to remove encription which uas used to remove blank space
 
     include_once("../../../static/connection/pdo_connection.php"); //include the pdo connection
 
@@ -15,13 +15,13 @@ if (isset($_SESSION["username"])) {
 
     while ($chapters = $chapter_stmt->fetch()) {
         //to view all chapter as option
-?>
-        <option value="<?php echo $chapters["ChCode"]; //chapter code as value 
-                        ?>">
-            <?php echo $chapters["ChName"]; //view chapter name 
-            ?>
+        ?>
+        <option value="<?php echo urlencode($chapters["ChCode"]); //chapter code as value, urldocode is used to remove encode which was used to remove white space
+                ?>">
+            <?php echo urlencode($chapters["ChName"]); //view chapter name 
+                    ?>
         </option>
-    <?php
+        <?php
 
     }
 } else {
@@ -49,6 +49,6 @@ if (isset($_SESSION["username"])) {
             }
         </script>
     </body>
-<?php
+    <?php
 }
 ?>

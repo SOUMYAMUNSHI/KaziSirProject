@@ -6,20 +6,20 @@ if (isset($_SESSION["username"])) {
 
     include_once("../../../static/connection/pdo_connection.php"); //include the pdo connection
 
-    $chapterCode = $_REQUEST["chCode"];
+    $chapterCode = urldecode($_REQUEST["chCode"]); //urldocode is used to remove encode which was used to remove white space
 
     $topic_stmt = $pdo_conn->prepare("SELECT `TopicName` FROM `topic` WHERE `ChCode` = :chapterCode"); //prepare statement for search topic
     $topic_stmt->bindValue(":chapterCode", $chapterCode); //bind value
     $topic_stmt->execute(); //execute prepare statement for topic
 
     while ($topics = $topic_stmt->fetch()) {
-?>
+        ?>
         <option value="<?php echo $topics["TopicName"]; //topic name as value 
-                        ?>">
+                ?>">
             <?php echo $topics["TopicName"]; //topic name as value 
-            ?>
+                    ?>
         </option>
-    <?php
+        <?php
     }
 } else {
 
@@ -46,6 +46,6 @@ if (isset($_SESSION["username"])) {
             }
         </script>
     </body>
-<?php
+    <?php
 }
 ?>

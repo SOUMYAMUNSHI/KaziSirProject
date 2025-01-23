@@ -28,9 +28,6 @@ if (isset($_POST["submit"])) {
                     session_start(); //session start
                     $_SESSION["username"] = $user_name; //creating session veriable
 
-                    $hexToken = bin2hex(random_bytes(16)); //generating token to store in cookie
-                    setcookie("Remember-me", $hexToken, time() + 8600, "/"); // setting cookie.(Add other parameter when hosting is aveliable)
-
                     date_default_timezone_set("asia/Kolkata"); //setting current time zone
                     $current_time = date("Y-m-d H:i:s"); //getting current time
 
