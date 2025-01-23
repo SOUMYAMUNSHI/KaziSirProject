@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2024 at 10:51 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Dec 16, 2024 at 08:38 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,6 +35,15 @@ CREATE TABLE `chapter` (
   `ChDes` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `chapter`
+--
+
+INSERT INTO `chapter` (`ID`, `ChCode`, `SubCode`, `ChName`, `ChDes`) VALUES
+(3, 'DSSearch', 'DS1', 'Searching', NULL),
+(2, 'NFA2', 'TOC2', 'NFA', 'Finite automata will be discussed'),
+(1, 'Tree01', 'DS1', 'Tree', 'All tree data structure will be covred');
+
 -- --------------------------------------------------------
 
 --
@@ -54,7 +63,7 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`ID`, `Login_ID`, `Password`, `In_Time`, `Out_Time`) VALUES
-(1, '$2y$10$r.AdAFUE3P6GtL8f7v8oOupr/lq3yRuh6CF2lavPcSA8GIVa9SEO.', '$2y$10$6Fv9OFBgFJBs/BLXcIiML.jJEG50WddJyy62ON4BKi4WpX7XvHXiy', '2024-12-14 22:07:55', NULL);
+(1, '$2y$10$r.AdAFUE3P6GtL8f7v8oOupr/lq3yRuh6CF2lavPcSA8GIVa9SEO.', '$2y$10$6Fv9OFBgFJBs/BLXcIiML.jJEG50WddJyy62ON4BKi4WpX7XvHXiy', '2024-12-16 11:53:42', NULL);
 
 -- --------------------------------------------------------
 
@@ -118,6 +127,14 @@ CREATE TABLE `subject` (
   `SubDes` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `subject`
+--
+
+INSERT INTO `subject` (`ID`, `SubCode`, `SubName`, `SubDes`) VALUES
+(1, 'DS1', 'Data Structure', 'All syllabus will be coered'),
+(2, 'TOC2', 'Theory Of Computation', 'All concepts will covered which are importent as per exam point of view');
+
 -- --------------------------------------------------------
 
 --
@@ -133,6 +150,14 @@ CREATE TABLE `topic` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `topic`
+--
+
+INSERT INTO `topic` (`ID`, `TopicCode`, `ChCode`, `TopicName`, `TopicDes`) VALUES
+(2, 'FA1', 'NFA2', 'NFA', NULL),
+(1, 'Graph', 'Tree01', 'binary tree', NULL);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -143,13 +168,6 @@ ALTER TABLE `chapter`
   ADD PRIMARY KEY (`ChCode`),
   ADD UNIQUE KEY `ID` (`ID`),
   ADD KEY `SubCode` (`SubCode`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`Login_ID`),
-  ADD UNIQUE KEY `ID` (`ID`);
 
 --
 -- Indexes for table `qa_laq`
@@ -198,13 +216,7 @@ ALTER TABLE `topic`
 -- AUTO_INCREMENT for table `chapter`
 --
 ALTER TABLE `chapter`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `qa_laq`
@@ -228,13 +240,13 @@ ALTER TABLE `qa_saq`
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `topic`
 --
 ALTER TABLE `topic`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

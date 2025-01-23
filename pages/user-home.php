@@ -3,7 +3,7 @@
 session_start();
 if (isset($_SESSION["username"])) //verifying session
 {
-    ?>
+?>
 
 
     <!DOCTYPE html>
@@ -15,7 +15,18 @@ if (isset($_SESSION["username"])) //verifying session
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
             integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!--nimation CDN start-->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <!--nimation CDN start-->
+
+        <!--CSS style-->
         <link rel="stylesheet" href="../style/user-home.css">
+        <link rel="stylesheet" href="../style/user-home_addQustion.css">
+        <!--CSS style-->
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
             integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -42,7 +53,7 @@ if (isset($_SESSION["username"])) //verifying session
                             <!-- <td class="table-data" id="star-question">Star Questions</td> -->
                             <td class="table-data">GATE</td>
                             <td class="table-data" id="search">Search</td>
-                            <td class="table-data" id="search">Add Question</td>
+                            <td class="table-data" id="add_questions">Add Question</td>
                         </table>
                     </div>
 
@@ -62,39 +73,16 @@ if (isset($_SESSION["username"])) //verifying session
                     </div>
                     <!--book animation end-->
 
-
                 </div>
 
 
             </div>
         </div>
 
-
+        <!--Aadding jquery-->
         <script src="../script/JQuery/jquery-3.7.1.js"></script>
-        <script>
-
-            function view_queston() { window.open("./view-question.html", "_blank") }; //load the view-question page
-
-            $("#question-bank").click(function () {
-                $("#animation-div").addClass("hidden"); //to hide the book animation (opotional)
-                $(".view").load("./components/question-card.php");
-            }); //view question-card
-
-            $("#search").click(function () { $(".view").load("./components/search-book.php") }); //view search-book
-
-            $("#star-question").click(function () { $(".view").load("./components/star-question.html") });
-
-            $("#admin-pannel").click(function () { $(".view").load("./components/admin-login.html") });
-
-
-            var animation = lottie.loadAnimation({
-                container: document.getElementById('animation'), // Target container
-                renderer: 'svg', // Render type ('svg', 'canvas', or 'html')
-                loop: true, // Animation loop (true/false)
-                autoplay: true, // Autoplay the animation
-                path: '../script/animation/book.json' // Path to your animation JSON file
-            });
-        </script>
+        <!--Adding related functions-->
+        <script src="../script/user-home.js"></script>
 
     </body>
 
@@ -103,10 +91,10 @@ if (isset($_SESSION["username"])) //verifying session
 
 
 
-    <?php
+<?php
 
 } else {
-    ?>
+?>
 
     <body style="margin:0px; padding:0px">
         <div
@@ -126,7 +114,7 @@ if (isset($_SESSION["username"])) //verifying session
         </script>
     </body>
 
-    <?php
+<?php
 }
 
 ?>
