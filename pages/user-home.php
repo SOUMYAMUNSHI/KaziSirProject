@@ -33,6 +33,7 @@ if (isset($_SESSION["username"])) //verifying session
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
         <!--Lottie animation library to load animation start-->
 
+
         <title>Home Page</title>
     </head>
 
@@ -83,6 +84,7 @@ if (isset($_SESSION["username"])) //verifying session
         <script src="../script/JQuery/jquery-3.7.1.js"></script>
         <!--Adding related functions-->
         <script src="../script/user-home.js"></script>
+
 
     </body>
 
