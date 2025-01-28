@@ -27,12 +27,17 @@ $question_type = $_REQUEST['question_type'];
     <?php
     if ($question_type == "mcq") {
         ?>
-        <form method="POST" action="#" class="mcq_question-form">
+        <form method="POST" action="../../../php/addQuestion/addQuestion.php" class="mcq_question-form">
             <div class="mcq_question-form-div">
 
-                <input hidden type="text" value="<?php echo $subject ?>">
-                <input hidden type="text" value="<?php echo $chapter ?>">
-                <input hidden type="text" value="<?php echo $topic ?>">
+                <input hidden name="subject" type="text" value="<?php echo $subject ?>">
+                <!--Hidden input tag is used to carry the value-->
+                <input hidden name="chapter" type="text" value="<?php echo $chapter ?>">
+                <!--Hidden input tag is used to carry the value-->
+                <input hidden name="topic" type="text" value="<?php echo $topic ?>">
+                <!--Hidden input tag is used to carry the value-->
+                <input hidden name="question_type" type="text" value="<?php echo $question_type ?>">
+                <!--Hidden input tag is used to carry the value-->
 
                 <label for="type_mcq-question">Enter Question Here</label>
                 <input type="text" name="type_mcq-question" id="type_mcq-question" placeholder="Enter question here"
@@ -56,7 +61,7 @@ $question_type = $_REQUEST['question_type'];
 
                 <input type="file" name="question-image" id="question-image">
 
-                <button type="submit">Add Question</button>
+                <button type="submit" name="submit">Add Question</button>
 
             </div>
         </form>
@@ -67,21 +72,21 @@ $question_type = $_REQUEST['question_type'];
             <form method="POST" action="#" class="mcq_question-form">
                 <div class="mcq_question-form-div">
 
-                    <input hidden type="text" value="<?php echo $subject ?>">
-                    <input hidden type="text" value="<?php echo $chapter ?>">
-                    <input hidden type="text" value="<?php echo $topic ?>">
+                    <input hidden type="text" value="<?php echo $subject ?>"> <!--Hidden input tag is used to carry the value-->
+                    <input hidden type="text" value="<?php echo $chapter ?>"> <!--Hidden input tag is used to carry the value-->
+                    <input hidden type="text" value="<?php echo $topic ?>"> <!--Hidden input tag is used to carry the value-->
 
                     <label for="type_mcq-question">Enter Question Here</label>
                     <input type="text" name="type_mcq-question" id="type_mcq-question" placeholder="Enter question here"
                         required>
 
                     <label for="correct-answer">Enter Answer Here</label>
-                    <textarea name="correct-answer" id="type_mcq-answer" required
-                        placeholder="Enter Correct answer Here" rows="6"></textarea>
+                    <textarea name="correct-answer" id="type_mcq-answer" required placeholder="Enter Correct answer Here"
+                        rows="6"></textarea>
 
                     <input type="file" name="question-image" id="question-image">
 
-                    <button type="submit">Add Question</button>
+                    <button type="submit" name="submit">Add Question</button>
 
                 </div>
             </form>
@@ -92,21 +97,21 @@ $question_type = $_REQUEST['question_type'];
                 <form method="POST" action="#" class="mcq_question-form">
                     <div class="mcq_question-form-div">
 
-                        <input hidden type="text" value="<?php echo $subject ?>">
-                        <input hidden type="text" value="<?php echo $chapter ?>">
-                        <input hidden type="text" value="<?php echo $topic ?>">
+                        <input hidden type="text" value="<?php echo $subject ?>"> <!--Hidden input tag is used to carry the value-->
+                        <input hidden type="text" value="<?php echo $chapter ?>"> <!--Hidden input tag is used to carry the value-->
+                        <input hidden type="text" value="<?php echo $topic ?>"> <!--Hidden input tag is used to carry the value-->
 
                         <label for="type_mcq-question">Enter Question Here</label>
                         <input type="text" name="type_mcq-question" id="type_mcq-question" placeholder="Enter question here"
                             required>
 
                         <label for="correct-answer">Enter Answer Here</label>
-                        <textarea name="correct-answer" id="type_mcq-answer" required
-                            placeholder="Enter Correct answer Here" rows="10"></textarea>
+                        <textarea name="correct-answer" id="type_mcq-answer" required placeholder="Enter Correct answer Here"
+                            rows="10"></textarea>
 
                         <input type="file" name="question-image" id="question-image">
 
-                        <button type="submit">Add Question</button>
+                        <button type="submit" name="submit">Add Question</button>
 
                     </div>
                 </form>
