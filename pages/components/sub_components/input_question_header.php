@@ -26,6 +26,7 @@ $topic = $_REQUEST["topic"];
     </div>
 </div>
 
+
 <!--Aadding jquery-->
 <script src="../script/JQuery/jquery-3.7.1.js"></script>
 
@@ -35,6 +36,8 @@ $topic = $_REQUEST["topic"];
         let chapter = $("#selected-chapter").val();
         let topic = $("#selected-topic").val();
         let question_type = $("#question-type").val();
+        // console.log(subject + " " + chapter + " " + topic + " " + question_type);
 
+        window.open(`http://localhost/KaziSirProject/pages/components/addquestion/mcq_question.php?subject=${subject}&chapter=${chapter}&topic=${topic}&question_type=${question_type}`, "_blank");
     })
 </script>

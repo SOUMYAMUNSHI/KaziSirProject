@@ -1,5 +1,9 @@
-/*answer inpput selection style start*/
+.body {
+  margin: 0px;
+  padding: 0px;
+}
 
+/*answer inpput selection style start*/
 .input-subject_heading {
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
@@ -79,14 +83,16 @@
 
 .final-add_question {
   display: flex;
-  justify-content: space-around;
-  background-color: #e0e0e0;
+  justify-content: center;
+  margin-top: 50px;
 }
 .add-question_heading {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
+  padding: 50px;
+
+  background-color: aliceblue;
 }
 
 .add-question_heading > button {
@@ -96,13 +102,51 @@
   border: none;
   border-radius: 2px;
   cursor: pointer;
+  color: white;
+  font-size: 15px;
+
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 200;
+  align-self: center;
+  margin-top: 10px;
 }
 
 .question-type {
-  width: 160px;
-  height: 30px;
-
+  padding: 8px;
   border-radius: 0;
+}
+
+.select-question {
+}
+
+.view-add_question {
+  height: 85vh;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.mcq_question-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+
+  /* overflow-y: scroll; */
+}
+
+.mcq_question-form-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  padding: 10px;
+}
+
+.mcq_question-form-div > input {
+  height: 20px;
+  padding: 5px;
 
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
@@ -111,8 +155,74 @@
   font-variation-settings: "wdth" 100;
 }
 
-.select-question {
+.mcq_question-form-div > label {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 200;
+
+  font-size: 15px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+#type_mcq-answer1 {
+  width: 50%;
+}
+
+#type_mcq-answer2 {
+  width: 50%;
+}
+
+#type_mcq-answer3 {
+  width: 50%;
+}
+
+#type_mcq-answer4 {
+  width: 50%;
+}
+
+#type_mcq-answer {
+  color: green;
+}
+
+#question-image {
+  margin-top: 20px;
+}
+
+.mcq_question-form-div > button {
+  background-color: #0092ca;
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
   color: white;
+  font-size: 15px;
+
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 200;
+  align-self: center;
+}
+
+.header {
+  background-color: #0092ca;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 200;
+  align-self: center;
+  color: white;
+}
+
+.header > p {
+  margin: 0;
+  padding: 10px;
 }
 
 /*answer inpput selection style end*/
