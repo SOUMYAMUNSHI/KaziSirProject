@@ -17,6 +17,12 @@ $question_type = $_REQUEST['question_type'];
     <!--Stylesheet start here-->
     <link rel="stylesheet" href="../../../style/user-home_addQustion.css">
     <!--Stylesheet end here-->
+
+    <!--For Text editor Start-->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <!--For Text editor End-->
+
 </head>
 
 <body style="margin:0px; padding:0px">
@@ -86,8 +92,14 @@ $question_type = $_REQUEST['question_type'];
                         required>
 
                     <label for="correct-answer">Enter Answer Here</label>
-                    <textarea name="correct-answer" id="type_mcq-answer" required placeholder="Enter Correct answer Here"
-                        rows="6"></textarea>
+
+                    <!--For Text editor Start-->
+                    <div id="editor"></div>
+                    <input type="hidden" name="correct-answer" id="type_mcq-answer">
+                    <!--For Text editor End-->
+
+
+
 
                     <input type="file" name="question-image" id="question-image">
 
@@ -116,8 +128,12 @@ $question_type = $_REQUEST['question_type'];
                             required>
 
                         <label for="correct-answer">Enter Answer Here</label>
-                        <textarea name="correct-answer" id="type_mcq-answer" required placeholder="Enter Correct answer Here"
-                            rows="10"></textarea>
+
+                        <!--For Text editor Start-->
+                        <div id="editor"></div>
+                        <input type="hidden" name="correct-answer" id="type_mcq-answer">
+                        <!--For Text editor End-->
+
 
                         <input type="file" name="question-image" id="question-image">
 
@@ -129,5 +145,15 @@ $question_type = $_REQUEST['question_type'];
     }
     ?>
 </body>
+
+<!--For Text editor Start-->
+<script>
+    var quill = new Quill('#editor', { theme: 'snow' });
+
+    document.querySelector('form').onsubmit = function () {
+        document.querySelector('#type_mcq-answer').value = quill.root.innerHTML;
+    };
+</script>
+<!--For Text editor End-->
 
 </html>
