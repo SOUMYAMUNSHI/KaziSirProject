@@ -69,12 +69,17 @@ $question_type = $_REQUEST['question_type'];
     } else if ($question_type == "saq") {
         ?>
 
-            <form method="POST" action="#" class="mcq_question-form">
+            <form method="POST" action="../../../php/addQuestion/addQuestion.php" class="mcq_question-form">
                 <div class="mcq_question-form-div">
 
-                    <input hidden type="text" value="<?php echo $subject ?>"> <!--Hidden input tag is used to carry the value-->
-                    <input hidden type="text" value="<?php echo $chapter ?>"> <!--Hidden input tag is used to carry the value-->
-                    <input hidden type="text" value="<?php echo $topic ?>"> <!--Hidden input tag is used to carry the value-->
+                    <input hidden type="text" name="subject" value="<?php echo $subject ?>">
+                    <!--Hidden input tag is used to carry the value-->
+                    <input hidden type="text" name="chapter" value="<?php echo $chapter ?>">
+                    <!--Hidden input tag is used to carry the value-->
+                    <input hidden type="text" name="topic" value="<?php echo $topic ?>">
+                    <!--Hidden input tag is used to carry the value-->
+                    <input hidden name="question_type" type="text" value="<?php echo $question_type ?>">
+                    <!--Hidden input tag is used to carry the value-->
 
                     <label for="type_mcq-question">Enter Question Here</label>
                     <input type="text" name="type_mcq-question" id="type_mcq-question" placeholder="Enter question here"
@@ -92,14 +97,19 @@ $question_type = $_REQUEST['question_type'];
             </form>
 
         <?php
-    } else if ($question_type == "lat") {
+    } else if ($question_type == "laq") {
         ?>
-                <form method="POST" action="#" class="mcq_question-form">
+                <form method="POST" action="../../../php/addQuestion/addQuestion.php" class="mcq_question-form">
                     <div class="mcq_question-form-div">
 
-                        <input hidden type="text" value="<?php echo $subject ?>"> <!--Hidden input tag is used to carry the value-->
-                        <input hidden type="text" value="<?php echo $chapter ?>"> <!--Hidden input tag is used to carry the value-->
-                        <input hidden type="text" value="<?php echo $topic ?>"> <!--Hidden input tag is used to carry the value-->
+                        <input hidden type="text" name="subject" value="<?php echo $subject ?>">
+                        <!--Hidden input tag is used to carry the value-->
+                        <input hidden type="text" name="chapter" value="<?php echo $chapter ?>">
+                        <!--Hidden input tag is used to carry the value-->
+                        <input hidden type="text" name="topic" value="<?php echo $topic ?>">
+                        <!--Hidden input tag is used to carry the value-->
+                        <input hidden name="question_type" type="text" value="<?php echo $question_type ?>">
+                        <!--Hidden input tag is used to carry the value-->
 
                         <label for="type_mcq-question">Enter Question Here</label>
                         <input type="text" name="type_mcq-question" id="type_mcq-question" placeholder="Enter question here"

@@ -20,7 +20,7 @@ $topic = $_REQUEST["topic"];
         <select class="question-type" name="question-type" id="question-type">
             <option value="mcq">MCQ</option>
             <option value="saq">SAQ</option>
-            <option value="lat">LAT</option>
+            <option value="laq">LAQ</option>
         </select>
         <button id="select-type" class="select-question">Select</button>
     </div>
