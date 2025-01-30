@@ -16,9 +16,9 @@ if (isset($_SESSION["username"])) {
     while ($chapters = $chapter_stmt->fetch()) {
         //to view all chapter as option
         ?>
-        <option value="<?php echo urlencode($chapters["ChCode"]); //chapter code as value, urldocode is used to remove encode which was used to remove white space
+        <option value="<?php echo urlencode($chapters["ChCode"]); //chapter code as value, urlencode is used to sent data perfectly through URL
                 ?>">
-            <?php echo urlencode($chapters["ChName"]); //view chapter name 
+            <?php echo $chapters["ChName"]; //view chapter name 
                     ?>
         </option>
         <?php

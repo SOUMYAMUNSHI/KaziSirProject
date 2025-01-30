@@ -5,15 +5,15 @@ $topic = $_REQUEST["topic"];
 ?>
 <div class="final-add_question">
     <div class="add-question_heading">
-        <p>Adding question to : <b><?php echo $subject; ?></b></p>
+        <p>Adding question to Subject: <b><?php echo $subject; ?></b></p>
         <input id="selected-subject" hidden type="text" value="<?php echo $subject; ?>">
         <!--Trick to get the value smoothly-->
 
-        <p>Adding question to : <b><?php echo $chapter; ?></b></p>
+        <p>Adding question to Chapter: <b><?php echo $chapter; ?></b></p>
         <input id="selected-chapter" hidden type="text"
             value="<?php echo $chapter; ?>"><!--Trick to get the value smoothly-->
 
-        <p>Adding question to : <b><?php echo $topic; ?></b></p>
+        <p>Adding question to Topic: <b><?php echo $topic; ?></b></p>
         <input id="selected-topic" hidden type="text"
             value="<?php echo $topic; ?>"><!--Trick to get the value smoothly-->
 

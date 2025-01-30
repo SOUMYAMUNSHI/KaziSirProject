@@ -22,7 +22,7 @@ $subject_stmt->execute(); //executing statement
     <div id="input-question" class="subject-input subject_input animate__animated">
         <p class="input-subject_heading">Select Subject</p>
         <select class="select-subject_option" name="input-chapter" id="input-subject">
-            <option value="">Select Subject</option>
+            <option value="null">Select Subject</option>
 
 
 
@@ -59,7 +59,7 @@ $subject_stmt->execute(); //executing statement
     <div id="chapter-input" class="subject-input subject_chpter hidden animate__animated">
         <p class="input-subject_heading">Select chapter</p>
         <select class="select-subject_option" name="input-chapter" id="input-chapter">
-            <option value="chapter">Chapter</option>
+            <option value="null">Chapter</option>
 
             <!--The options will load here-->
 
@@ -78,7 +78,7 @@ $subject_stmt->execute(); //executing statement
     <div id="topic-input" class="subject-input subject_topic hidden animate__animated">
         <p class="input-subject_heading">Select Topic</p>
         <select class="select-subject_option" name="input-chapter" id="input-topic">
-            <option value="chapter">Topic</option>
+            <option value="null">Topic</option>
 
             <!--The topics will load-->
 
