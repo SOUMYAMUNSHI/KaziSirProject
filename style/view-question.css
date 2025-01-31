@@ -3,164 +3,72 @@
 body {
   margin: 0;
   padding: 0;
-}
-
-.search-star_Question {
-  display: flex;
-  justify-content: space-around;
-  padding: 15px;
-  background-color: #eeeeee;
-  border-radius: 2px;
-}
-
-.star-select {
-  width: 200px;
-  height: 35px;
-  border: none;
-  border-radius: 5px;
-  padding: 5px;
+  overflow: hidden;
 
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
-  font-variation-settings: "wdth" 100;
+  font-variation-settings: "wdth" 200;
+  align-self: center;
 }
 
-.view-button {
-  background-color: #5a37c3;
-  border: none;
-  width: 90px;
-  border-radius: 5px;
-  font-size: 15px;
-
+.header {
+  background-color: #0092ca;
   color: white;
-  cursor: pointer;
 }
 
-.view-button:hover {
-  background-color: #775ada;
+.header > p {
+  margin: 0;
+  padding: 10px;
+}
+
+.question-id{
+  font-weight: bold;
+}
+
+.questions{
+  font-style: italic;
 }
 
 .view-question {
   display: flex;
-  flex-direction: row;
-
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.star-questions {
-  display: flex;
   flex-direction: column;
-  width: 55%;
-  height: 85vh;
-
-  overflow: auto;
 }
 
-.star-questions::-webkit-scrollbar {
-  width: 5px;
-
-  /* background-color: rebeccapurple; */
-}
-
-.star-questions::-webkit-scrollbar-track {
-  background-color: #e3e3e3;
-}
-.star-questions::-webkit-scrollbar-thumb {
-  background-color: #606470;
-  border-radius: 5px;
-}
-
-.star-questin {
+.question {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row;
+  height: 70px;
   align-items: center;
-  background-color: #f8fcfb;
-  margin: 10px;
-  height: auto;
+  margin-left: 10px;
+  gap: 10px;
 }
 
-.star {
-  text-align: center;
-  color: #34495e;
-  font-size: 18px;
-  margin-left: 20px;
-  margin-right: 50px;
+.view-button {
+  margin-left: 200px;
+  background-color: #42b883;
+  border-color: #42b883;
+  color: white;
 }
 
-.view-answer {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  margin-left: 50px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-}
-
-.bi-eyeglasses {
-  font-size: 40px;
+.question > p {
+  margin: 0;
 }
 
 .answer {
-  display: flex;
-  width: 45%;
-  justify-content: center;
-  align-items: center;
-
-  font-family: "Markazi Text", serif;
-  font-optical-sizing: 12;
-  font-weight: 500;
-  font-style: normal;
-
-  font-size: 20px;
+  background-color: #ececec;
+  padding-left: 10px;
 }
 
-.answer-output {
-  display: flex;
-  flex-direction: column;
-  /* background-color: #eeeeee; */
-  width: 95%;
-  height: 80vh;
-  padding: 10px;
-  justify-content: center;
-
-  overflow: auto;
+.option {
+  margin-left: 20px;
+  width: auto;
+  font-size: 15px;
 }
 
-.answer-body {
-  padding-top: 20px;
-  /* padding: 20px; */
-  text-align: start;
+.question-container {
+  height: 95vh;
+  overflow-y: scroll;
 }
-
-.question-body {
-  display: flex;
-  /* height: auto; */
-  flex-direction: column;
-  justify-content: center;
-  padding-bottom: 10px;
-
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.question-body > img {
-  width: 400px;
-}
-
-/*This style is for div view-image to view question-image*/
-
-.view-image {
-  position: absolute;
-  top: 0px;
-  z-index: 10;
-  background-color: #e3e3e3;
-  width: 100%;
-  height: 100%;
-}
+/*From here previoius view page design in made*/
