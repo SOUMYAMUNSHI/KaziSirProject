@@ -71,4 +71,9 @@ body {
   height: 95vh;
   overflow-y: scroll;
 }
+
+.data_not-found{
+  display: flex;
+  justify-content: center;
+}
 /*From here previoius view page design in made*/
