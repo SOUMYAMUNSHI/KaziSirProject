@@ -21,9 +21,38 @@ if (isset($_SESSION["username"])) {
                     <p class="book-icon"><i class="fa-solid fa-book"></i></p>
                 </div>
                 <div class="details">
+
+
+
                     <h1 class="subject-name"><?php echo $subject["SubName"]; //viewing subject name ?></h1>
-                    <p class="chapter">Total Chapter: 5</p>
-                    <p class="question">Total Question: 100</p>
+
+                    <?php
+
+                    $subcode = $subject["SubCode"]; //storing SubCode to use it
+            
+                    $chapterCountStmt = $pdo_conn->prepare("SELECT SubCode, ChCode, COUNT(ChName) AS ChapterCount FROM chapter WHERE SubCode = '$subcode' GROUP BY SubCode;"); //preparing the statement
+                    $chapterCountStmt->execute(); //Executing the statement
+            
+                    while ($count = $chapterCountStmt->fetch()) {
+
+
+                        ?>
+                        <p class="chapter">Total Chapter:<?php echo $count["ChapterCount"] ?></p> <!--Viewing Total Chapter-->
+                        <?php
+
+                        $chapterCode = $count["ChCode"];
+
+                        $countQuestionStmt = $pdo_conn->prepare("SELECT `TopicCode`, COUNT(Question) AS `Count` FROM `qa_saq` WHERE `TopicCode` IN (SELECT `TopicCode` FROM `topic` WHERE `ChCode` = '$chapterCode') GROUP BY `TopicCode`;"); //Preparing statement
+                        $countQuestionStmt->execute(); //Executing the statement
+            
+                        while ($countQuestion = $countQuestionStmt->fetch()) {
+                            ?>
+                            <p class="question">Total Question: <?php echo $countQuestion["Count"] ?></p> <!--Viewing Total Question-->
+                            <?php
+                        }
+                    }
+
+                    ?>
 
                     <button onclick="view_queston()" id="view-question" class="button" type="submit">View</button>
                 </div>
