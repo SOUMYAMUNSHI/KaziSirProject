@@ -30,7 +30,8 @@ if (isset($_SESSION["username"])) {
 
                     $subcode = $subject["SubCode"]; //storing SubCode to use it
             
-                    $chapterCountStmt = $pdo_conn->prepare("SELECT SubCode, ChCode, COUNT(ChName) AS ChapterCount FROM chapter WHERE SubCode = '$subcode' GROUP BY SubCode;"); //preparing the statement
+                    $chapterCountStmt = $pdo_conn->prepare("SELECT SubCode, ChCode, COUNT(ChName) AS ChapterCount FROM chapter WHERE SubCode = :subcode GROUP BY SubCode;"); //preparing the statement
+                    $chapterCountStmt->bindValue(":subcode", $subcode); //Binding the subcode
                     $chapterCountStmt->execute(); //Executing the statement
             
                     while ($count = $chapterCountStmt->fetch()) {
@@ -40,15 +41,26 @@ if (isset($_SESSION["username"])) {
                         <p class="chapter">Total Chapter:<?php echo $count["ChapterCount"] ?></p> <!--Viewing Total Chapter-->
                         <?php
 
-                        $chapterCode = $count["ChCode"];
+                        $ChapterCode = $count["ChCode"]; //Storing chapter code to use it latter
+                        $topicCode = $pdo_conn->prepare("SELECT `TopicCode` FROM `topic` WHERE `ChCode` = :chCode");
+                        $topicCode->bindValue(":chCode", $ChapterCode);
+                        $topicCode->execute();
 
-                        $countQuestionStmt = $pdo_conn->prepare("SELECT `TopicCode`, COUNT(Question) AS `Count` FROM `qa_saq` WHERE `TopicCode` IN (SELECT `TopicCode` FROM `topic` WHERE `ChCode` = '$chapterCode') GROUP BY `TopicCode`;"); //Preparing statement
-                        $countQuestionStmt->execute(); //Executing the statement
+                        while ($TopicCode = $topicCode->fetch()) {
+
+                            $Topic_Code = $TopicCode["TopicCode"]; //Storing topic code to use latter
             
-                        while ($countQuestion = $countQuestionStmt->fetch()) {
-                            ?>
-                            <p class="question">Total Question: <?php echo $countQuestion["Count"] ?></p> <!--Viewing Total Question-->
-                            <?php
+                            $countQuestionStmt = $pdo_conn->prepare("SELECT (SELECT COUNT(*) FROM `qa_laq` WHERE `TopicCode` = :topicCode) + (SELECT COUNT(*) FROM `qa_saq` WHERE `TopicCode` = :topicCode) + (SELECT COUNT(*) FROM `qa_mcq` WHERE `TopicCode` = :topicCode) AS `Total_Raw`;"); //Preparing statement
+                            $countQuestionStmt->bindValue(":topicCode", $Topic_Code); //Binding the value
+                            $countQuestionStmt->execute(); //Executing the statement
+            
+                            while ($countQuestion = $countQuestionStmt->fetch()) {
+                                ?>
+                                <p class="question">Total Question: <?php echo $countQuestion["Total_Raw"] ?></p>
+                                <!--Viewing Total Question-->
+                                <?php
+                            }
+
                         }
                     }
 
