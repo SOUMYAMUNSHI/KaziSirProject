@@ -9,11 +9,10 @@
 </head>
 
 <body>
-
     <!--Header-->
     <div class="heading-container">
         <h1 class="heading">Kazi Sir Question Bank</h1>
-        <h4 class="heading">Subject: Subject Name</h4>
+        <h4 class="heading">Subject: Subject</h4>
         <hr>
 
         <div class="question_type">
@@ -25,12 +24,12 @@
             </select>
             <button class="submit_button" type="submit">Submit</button>
 
-            <button class="print_button">Print</button>
+            <button class="print_button" id="print_pdf">Print</button>
         </div>
     </div>
     <!--Header-->
 
-    <div class="questions">
+    <div class="questions" id="question">
 
 
         <!--MCQ Question-->
@@ -58,6 +57,16 @@
 
     </div>
 
+
+    <script src="../../script/JQuery/jquery-3.7.1.js"></script>
+    <script>
+
+        let fullPage = document.documentElement.outerHTML;
+
+        $("#print_pdf").click(function () {
+            window.open(`../../php/print_pdf/pdf.php?html=${encodeURIComponent(fullPage)}`, "_blank");
+        });
+    </script>
 
 </body>
 
