@@ -62,7 +62,7 @@ if (isset($_POST["submit"])) {
 
                 <script>
                     function login_page() {
-                        window.location.href = "http://localhost/KaziSirProject/index.html"; //return to index page
+                        window.location.href = "http://localhost/KaziSirProject/index.php"; //return to index page
                     }
                 </script>
             </body>

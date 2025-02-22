@@ -257,8 +257,8 @@ body {
 
 .dev-image {
   border-radius: 50%;
-  width:100px;
-  border:2px solid white;
+  width: 100px;
+  border: 2px solid white;
 }
 
 .owner {
@@ -290,10 +290,10 @@ body {
 
 .owner-image {
   border-radius: 50%;
-  width:150px;
+  width: 150px;
 }
 
-.owner-intro{
+.owner-intro {
   margin-left: 10px;
   animation-delay: 0.02s;
 }

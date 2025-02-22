@@ -11,7 +11,7 @@
 
     <script>
         function login_page() {
-            window.location.href = "http://localhost/KaziSirProject/index.html"; //return to previous page
+            window.location.href = "http://localhost/KaziSirProject/index.php"; //return to previous page
         }
     </script>
 </body>

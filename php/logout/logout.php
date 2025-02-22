@@ -2,6 +2,6 @@
 session_start();
 session_destroy();
 
-header("Location:http://localhost/KaziSirProject/index.html");
+header("Location:http://localhost/KaziSirProject/index.php");
 exit;
 ?>
