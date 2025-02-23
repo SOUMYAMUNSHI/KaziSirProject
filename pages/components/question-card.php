@@ -25,7 +25,6 @@ if (isset($_SESSION["username"])) {
 
 
                     <h1 class="subject-name"><?php echo $subject["SubName"]; //viewing subject name ?></h1>
-
                     <?php
 
                     $subcode = $subject["SubCode"]; //storing SubCode to use it
@@ -39,6 +38,14 @@ if (isset($_SESSION["username"])) {
 
                         ?>
                         <p class="chapter">Total Chapter:<?php echo $count["ChapterCount"] ?></p> <!--Viewing Total Chapter-->
+
+                        <input hidden type="text" id="subject"
+                            value="<?php echo urldecode($count["SubCode"]); //viewing subject name ?>">
+                        <!--Hidden input to get the value-->
+
+                        <input hidden type="text" id="chapter_code"
+                            value="<?php echo urldecode($count["ChCode"]); //viewing subject name ?>">
+                        <!--Hidden input to get the value-->
                         <?php
 
                         $ChapterCode = $count["ChCode"]; //Storing chapter code to use it latter
@@ -57,6 +64,9 @@ if (isset($_SESSION["username"])) {
                             while ($countQuestion = $countQuestionStmt->fetch()) {
                                 ?>
                                 <p class="question">Total Question: <?php echo $countQuestion["Total_Raw"] ?></p>
+
+
+
                                 <!--Viewing Total Question-->
                                 <?php
                             }
@@ -70,6 +80,14 @@ if (isset($_SESSION["username"])) {
                 </div>
             </div>
         </div>
+
+        <script>
+            function view_queston() {
+                const ChapterCode = document.getElementById("chapter_code").value;
+                window.open(`components/questoini_bankQuestion.php?ChCode=${ChapterCode}`, "_blank")
+            }; //load the view-question page
+        </script>
+
         <?php
     }
 } else {

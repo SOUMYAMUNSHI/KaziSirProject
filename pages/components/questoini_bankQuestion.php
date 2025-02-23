@@ -1,3 +1,10 @@
+<?php
+include_once("../../static/connection/pdo_connection.php"); //Getting database connection
+
+
+$chapterCode = $_REQUEST["ChCode"]; //getting chapter code from question-card page
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,55 +23,62 @@
         <hr>
 
         <div class="question_type">
-            <select class="question_option">
+            <select class="question_option" id="options">
                 <option value="NULL">Select</option>
                 <option value="MCQ">MCQ</option>
                 <option value="SAQ">SAQ</option>
                 <option value="LAQ">LAQ</option>
             </select>
-            <button class="submit_button" type="submit">Submit</button>
+            <button class="submit_button" type="submit" id="submit">Submit</button>
 
             <button class="print_button" id="print_pdf">Print</button>
         </div>
     </div>
     <!--Header-->
 
-    <div class="questions" id="question">
+
+    <script src="../../script/JQuery/jquery-3.7.1.js"></script> <!--Including jquery-->
+    <script>
+        $("#submit").click(function () {
+
+            const questionType = $("#options").val();
+            if (questionType == "NULL") {
+                document.getElementById("question").innerHTML = "<h2 style='text-align:center'>No option is selected</h2>"; //This message will print if no option is selected
+            }
+            else {
+                $("#question").load(`./sub_components/show_question.php?questionType=${questionType}&chapterCode=<?php echo urlencode($chapterCode) ?>`);
+            }
+        })
+    </script>
 
 
-        <!--MCQ Question-->
-        <div class="mcq_question">
-            <div class="question">
-                <p>1) MCQ Question1?</p>
-                <div>
-                    <span class="option">1. Option 1</span>
-                    <span class="option">2. Option 2</span>
-                    <span class="option">3. Option 3</span>
-                    <span class="option">4. Option 4</span>
-                </div>
-            </div>
-        </div>
-        <!--MCQ Question-->
 
 
 
-        <!--SAQ and LAQ Question-->
-        <div class="saq">
-            <p>1) Question one?</p>
-        </div>
-        <!--SAQ and LAQ Question-->
 
 
+    <div class="questions" id="question" style="margin:0px">
+        <h2 style="text-align:center">No question selected</h2>
     </div>
 
 
-    <script src="../../script/JQuery/jquery-3.7.1.js"></script>
+
+
+
+
     <script>
 
-        let fullPage = document.documentElement.outerHTML;
+        const heading = `<div style="text-align:center;margin-top:0px;">
+        <h1 class="heading">Kazi Sir Question Bank</h1>
+        <h4 class="heading" > Subject:</h4 >
+        <hr>
+        </div>`; //This is the heading
+
+        let questions = document.getElementById("question").innerHTML; //this contain all the questions
+        let page = (heading + questions); //Concatinating heading and questions
 
         $("#print_pdf").click(function () {
-            window.open(`../../php/print_pdf/pdf.php?html=${encodeURIComponent(fullPage)}`, "_blank");
+            window.open(`../../php/print_pdf/pdf.php?html=${encodeURIComponent(page)}`, "_blank");
         });
     </script>
 
