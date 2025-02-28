@@ -16,7 +16,7 @@ $subject = $_REQUEST["subjectName"]; //getting subject name form question-card p
     <link rel="stylesheet" href="../../style/question_bankQuestion.css">
 </head>
 
-<body>
+<body style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
     <!--Header-->
     <div class="heading-container">
         <h1 class="heading">Kazi Sir Question Bank</h1>
@@ -48,6 +48,16 @@ $subject = $_REQUEST["subjectName"]; //getting subject name form question-card p
             }
             else {
                 $("#question").load(`./sub_components/show_question.php?questionType=${questionType}&chapterCode=<?php echo urlencode($chapterCode) ?>`);
+                // $.ajax({
+                //     url: `./sub_components/show_question.php?questionType=${questionType}&chapterCode=<?php echo urlencode($chapterCode) ?>`,
+                //     method: 'GET',
+                //     success: function (data) {
+                //         $('#question').html(data); //this will load the data
+                //     },
+                //     error: function (jqXHR, textStatus, errorThrown) {
+                //         console.error("Error:" textStatus, errorThrown);
+                //     }
+                // });
             }
         })
     </script>
@@ -71,7 +81,7 @@ $subject = $_REQUEST["subjectName"]; //getting subject name form question-card p
 
         const heading = `<div style="text-align:center;margin-top:0px;">
         <h1 class="heading">Kazi Sir Question Bank</h1>
-        <h4 class="heading" > Subject:</h4 >
+        <h4 class="heading" > Subject:<?php echo $subject ?></h4 >
         <hr>
         </div>`; //This is the heading
 

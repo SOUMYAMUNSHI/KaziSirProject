@@ -13,7 +13,7 @@ try {
     $questions->execute(); //executing the statement
 
     ?>
-    <div class="mcq_question">
+    <div class="mcq_question" id="view_selected-question">
         <?php
 
         while ($question = $questions->fetch()) {
