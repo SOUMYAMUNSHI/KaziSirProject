@@ -24,8 +24,10 @@ if (isset($_SESSION["username"])) {
 
 
 
-                    <h1 class="subject-name"><?php echo $subject["SubName"]; //viewing subject name ?></h1>
-                    <input id="subject-name" type="text" value="<?php echo urlencode($subject["SubName"]) ?>" hidden>
+                    <h1 class="subject-name" id="<?php echo $subject["ID"]; //viewing subject id ?>">
+                        <?php echo $subject["SubName"]; //viewing subject name ?>
+                    </h1>
+                    <!-- <input id="subject-name" type="text" value="<?php echo urlencode($subject["SubName"]) ?>" hidden> -->
                     <?php
 
                     $subcode = $subject["SubCode"]; //storing SubCode to use it
@@ -77,15 +79,16 @@ if (isset($_SESSION["username"])) {
 
                     ?>
 
-                    <button onclick="view_queston()" id="view-question" class="button" type="submit">View</button>
+                    <button onclick="view_queston(<?php echo $subject["ID"]; ?>)" id="view-question" class="button"
+                        type="submit">View</button>
                 </div>
             </div>
         </div>
 
         <script>
-            function view_queston() {
+            function view_queston(id) {
                 const ChapterCode = document.getElementById("chapter_code").value;
-                const subjectName = document.getElementById("subject-name").value;
+                const subjectName = document.getElementById(id).innerText;
                 window.open(`components/questoini_bankQuestion.php?ChCode=${ChapterCode}&subjectName=${subjectName}`, "_blank")
             }; //load the view-question page
         </script>
