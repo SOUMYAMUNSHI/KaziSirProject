@@ -3,6 +3,7 @@ include_once("../../static/connection/pdo_connection.php"); //Getting database c
 
 
 $chapterCode = $_REQUEST["ChCode"]; //getting chapter code from question-card page
+$subject = $_REQUEST["subjectName"]; //getting subject name form question-card page
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@ $chapterCode = $_REQUEST["ChCode"]; //getting chapter code from question-card pa
     <!--Header-->
     <div class="heading-container">
         <h1 class="heading">Kazi Sir Question Bank</h1>
-        <h4 class="heading">Subject: Subject</h4>
+        <h4 class="heading">Subject: <?php echo $subject ?></h4>
         <hr>
 
         <div class="question_type">

@@ -25,6 +25,7 @@ if (isset($_SESSION["username"])) {
 
 
                     <h1 class="subject-name"><?php echo $subject["SubName"]; //viewing subject name ?></h1>
+                    <input id="subject-name" type="text" value="<?php echo urlencode($subject["SubName"]) ?>" hidden>
                     <?php
 
                     $subcode = $subject["SubCode"]; //storing SubCode to use it
@@ -84,7 +85,8 @@ if (isset($_SESSION["username"])) {
         <script>
             function view_queston() {
                 const ChapterCode = document.getElementById("chapter_code").value;
-                window.open(`components/questoini_bankQuestion.php?ChCode=${ChapterCode}`, "_blank")
+                const subjectName = document.getElementById("subject-name").value;
+                window.open(`components/questoini_bankQuestion.php?ChCode=${ChapterCode}&subjectName=${subjectName}`, "_blank")
             }; //load the view-question page
         </script>
 
