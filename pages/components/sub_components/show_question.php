@@ -2,7 +2,8 @@
 
 include_once("../../../static/connection/pdo_connection.php"); //including connection
 
-$questionType = "qa_" . $_REQUEST["questionType"]; //concatinatiing "qa_" to making it as ttable name
+$type = $_REQUEST["questionType"]; //Fetching question type
+$questionType = "qa_" . $type; //concatinatiing "qa_" to making it as ttable name
 $chapterCode = $_REQUEST["chapterCode"];
 
 
@@ -22,7 +23,8 @@ try {
                 <p style="display:inline; margin-left:10px;"><?php echo $question["Question"] ?></p>
 
                 <?php
-                if ($question["Op1"]) {
+                if ($type == "MCQ") //If the question type is mcq then the option will display 
+                {
                     ?>
                     <div style="margin-top:10px">
                         <span class="option">1. <?php echo $question["Op1"] ?></span>
