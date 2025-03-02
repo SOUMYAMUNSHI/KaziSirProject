@@ -2,10 +2,10 @@
 session_start();
 //Checking Session
 if (isset($_SESSION['username'])) {
-    $subject = $_REQUEST['subject'];
-    $chapter = $_REQUEST['chapter'];
-    $topic = $_REQUEST['topic'];
-    $question_type = $_REQUEST['question_type'];
+    $subject = htmlspecialchars($_REQUEST['subject']); //getting the data and htmlspecialchars function is use to get data securely(to protect from Cross-Site Scripting)
+    $chapter = htmlspecialchars($_REQUEST['chapter']); //getting the data and htmlspecialchars function is use to get data securely(to protect from Cross-Site Scripting)
+    $topic = htmlspecialchars($_REQUEST['topic']); //getting the data and htmlspecialchars function is use to get data securely(to protect from Cross-Site Scripting)
+    $question_type = htmlspecialchars($_REQUEST['question_type']); //getting the data and htmlspecialchars function is use to get data securely(to protect from Cross-Site Scripting)
 
     ?>
 
