@@ -32,7 +32,7 @@ $subject = $_REQUEST["subjectName"]; //getting subject name form question-card p
             </select>
             <button class="submit_button" type="submit" id="submit">Submit</button>
 
-            <button class="print_button" id="print_pdf">Print</button>
+            <button class="print_button" id="print_pdf" onclick="print()">Print</button>
         </div>
     </div>
     <!--Header-->
@@ -48,16 +48,6 @@ $subject = $_REQUEST["subjectName"]; //getting subject name form question-card p
             }
             else {
                 $("#question").load(`./sub_components/show_question.php?questionType=${questionType}&chapterCode=<?php echo urlencode($chapterCode) ?>`);
-                // $.ajax({
-                //     url: `./sub_components/show_question.php?questionType=${questionType}&chapterCode=<?php echo urlencode($chapterCode) ?>`,
-                //     method: 'GET',
-                //     success: function (data) {
-                //         $('#question').html(data); //this will load the data
-                //     },
-                //     error: function (jqXHR, textStatus, errorThrown) {
-                //         console.error("Error:" textStatus, errorThrown);
-                //     }
-                // });
             }
         })
     </script>
@@ -77,21 +67,7 @@ $subject = $_REQUEST["subjectName"]; //getting subject name form question-card p
 
 
 
-    <script>
-
-        const heading = `<div style="text-align:center;margin-top:0px;">
-        <h1 class="heading">Kazi Sir Question Bank</h1>
-        <h4 class="heading" > Subject:<?php echo $subject ?></h4 >
-        <hr>
-        </div>`; //This is the heading
-
-        let questions = document.getElementById("question").innerHTML; //this contain all the questions
-        let page = (heading + questions); //Concatinating heading and questions
-
-        $("#print_pdf").click(function () {
-            window.open(`../../php/print_pdf/pdf.php?html=${encodeURIComponent(page)}`, "_blank");
-        });
-    </script>
+    <script src="../../script/pdf_print.js"></script> <!--This java script function will create the pdf-->
 
 </body>
 

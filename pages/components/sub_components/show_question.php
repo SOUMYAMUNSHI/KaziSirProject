@@ -2,9 +2,9 @@
 
 include_once("../../../static/connection/pdo_connection.php"); //including connection
 
-$type = $_REQUEST["questionType"]; //Fetching question type
+$type = htmlspecialchars($_REQUEST["questionType"]); //Fetching question type, htmlspecialchars() is to filtering the data(to prevent Cross-Site Scripting attack)
 $questionType = "qa_" . $type; //concatinatiing "qa_" to making it as ttable name
-$chapterCode = $_REQUEST["chapterCode"];
+$chapterCode = htmlspecialchars($_REQUEST["chapterCode"]); //Getting chapterCode from question type htmlspecialchars() is to filtering the data(to prevent Cross-Site Scripting attack)
 
 
 try {
@@ -18,15 +18,15 @@ try {
 
         while ($question = $questions->fetch()) {
             ?>
-            <div class="question">
-                <label><?php echo $question["QuestionCode"] ?>)</label>
-                <p style="display:inline; margin-left:10px;"><?php echo $question["Question"] ?></p>
+            <div class="question" style="margin-top:5px">
+                <label><i><?php echo $question["QuestionCode"] ?>)</i> </label>
+                <p style="display:inline; margin-left:5px;"><b><?php echo $question["Question"] ?></b></p>
 
                 <?php
                 if ($type == "MCQ") //If the question type is mcq then the option will display 
                 {
                     ?>
-                    <div style="margin-top:10px">
+                    <div style="margin-top:10px; margin-bottom:30px;">
                         <span class="option">1. <?php echo $question["Op1"] ?></span>
                         <span class="option">2. <?php echo $question["Op2"] ?></span>
                         <span class="option">3. <?php echo $question["Op3"] ?></span>
