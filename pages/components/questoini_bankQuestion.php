@@ -32,7 +32,7 @@ $subject = $_REQUEST["subjectName"]; //getting subject name form question-card p
             </select>
             <button class="submit_button" type="submit" id="submit">Submit</button>
 
-            <button class="print_button" id="print_pdf" onclick="print()">Print</button>
+            <button class="print_button" id="printQuestion">Print</button>
         </div>
     </div>
     <!--Header-->
@@ -62,12 +62,12 @@ $subject = $_REQUEST["subjectName"]; //getting subject name form question-card p
         <h2 style="text-align:center">No question selected</h2>
     </div>
 
+    <script>
+        $("#printQuestion").click(function () {
+            window.open("../../php/print_pdf/pdf.php?subject=<?php echo $subject ?>");
+        })
+    </script>
 
-
-
-
-
-    <script src="../../script/pdf_print.js"></script> <!--This java script function will create the pdf-->
 
 </body>
 

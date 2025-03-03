@@ -95,7 +95,17 @@ if (isset($_SESSION["username"])) {
 
         <?php
     }
-} else {
+} 
+
+
+
+
+
+
+
+
+
+else {
     ?>
 
     <!--Error Message if session is not set start-->
