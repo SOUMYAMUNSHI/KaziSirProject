@@ -64,7 +64,8 @@ $subject = $_REQUEST["subjectName"]; //getting subject name form question-card p
 
     <script>
         $("#printQuestion").click(function () {
-            window.open("../../php/print_pdf/pdf.php?subject=<?php echo $subject ?>");
+            const questionType = $("#options").val();
+            window.open(`../../php/print_pdf/pdf.php?subject=<?php echo $subject ?>&questionType=${questionType}&chapterCode=<?php echo urlencode($chapterCode) ?>`);
         })
     </script>
 
