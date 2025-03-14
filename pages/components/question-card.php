@@ -89,23 +89,13 @@ if (isset($_SESSION["username"])) {
             function view_queston(id) {
                 const ChapterCode = document.getElementById("chapter_code").value;
                 const subjectName = document.getElementById(id).innerText;
-                window.open(`components/questoini_bankQuestion.php?ChCode=${ChapterCode}&subjectName=${subjectName}`, "_blank")
+                window.open(`components/question_bankQuestion.php?ChCode=${ChapterCode}&subjectName=${subjectName}`, "_blank")
             }; //load the view-question page
         </script>
 
         <?php
     }
-} 
-
-
-
-
-
-
-
-
-
-else {
+} else {
     ?>
 
     <!--Error Message if session is not set start-->

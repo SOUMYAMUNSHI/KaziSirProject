@@ -45,6 +45,7 @@ try {
                     </div>
                     <?php
                 }
+
                 ?>
             </div>
             <?php
