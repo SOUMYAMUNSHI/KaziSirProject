@@ -4,6 +4,18 @@ include_once("../../static/connection/pdo_connection.php"); //Getting database c
 
 $chapterCode = $_REQUEST["ChCode"]; //getting chapter code from question-card page
 $subject = $_REQUEST["subjectName"]; //getting subject name form question-card page
+
+$TopicCode = $pdo_conn->prepare("SELECT `TopicCode` FROM `topic` WHERE `ChCode` IN (SELECT `ChCode` FROM `chapter` WHERE `SubCode` = :subCode);");
+$TopicCode->bindValue(":subCode", $chapterCode);
+$TopicCode->execute();
+
+while($code = $TopicCode->fetch()){
+    ?>
+    <input hidden type="text" id="TopicCode" value="<?php echo $code['TopicCode'] ?>"> <!--This input is use to hold the value of TopicCode-->
+    <?php
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -43,11 +55,12 @@ $subject = $_REQUEST["subjectName"]; //getting subject name form question-card p
         $("#submit").click(function () {
 
             const questionType = $("#options").val();
+            const TopicCode = $("#TopicCode").val();
             if (questionType == "NULL") {
                 document.getElementById("question").innerHTML = "<h2 style='text-align:center'>No option is selected</h2>"; //This message will print if no option is selected
             }
             else {
-                $("#question").load(`./sub_components/show_question.php?questionType=${questionType}&chapterCode=<?php echo urlencode($chapterCode) ?>`);
+                $("#question").load(`./sub_components/show_question.php?questionType=${questionType}&TopicCode=${TopicCode}`);
             }
         })
     </script>
@@ -65,7 +78,8 @@ $subject = $_REQUEST["subjectName"]; //getting subject name form question-card p
     <script>
         $("#printQuestion").click(function () {
             const questionType = $("#options").val();
-            window.open(`../../php/print_pdf/pdf.php?subject=<?php echo $subject ?>&questionType=${questionType}&chapterCode=<?php echo urlencode($chapterCode) ?>`);
+            const TopicCode = $("#TopicCode").val();
+            window.open(`../../php/print_pdf/pdf.php?subject=<?php echo $subject ?>&questionType=${questionType}&TopicCode=${TopicCode}`);
         })
     </script>
 

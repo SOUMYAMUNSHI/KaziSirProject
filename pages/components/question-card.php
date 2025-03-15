@@ -1,3 +1,21 @@
+<!--Here is an issue in this code. Actually you are extracting and transfering subject code, But you need topic code.
+So you need to fetch chapter code using subject code
+and topic code using chapter code...
+
+Seems like, I gonna be cooked
+-->
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
 session_start();
 
@@ -27,7 +45,7 @@ if (isset($_SESSION["username"])) {
                     <h1 class="subject-name" id="<?php echo $subject["ID"]; //viewing subject id ?>">
                         <?php echo $subject["SubName"]; //viewing subject name ?>
                     </h1>
-                    <!-- <input id="subject-name" type="text" value="<?php echo urlencode($subject["SubName"]) ?>" hidden> -->
+
                     <?php
 
                     $subcode = $subject["SubCode"]; //storing SubCode to use it
@@ -42,8 +60,8 @@ if (isset($_SESSION["username"])) {
                         ?>
                         <p class="chapter">Total Chapter:<?php echo $count["ChapterCount"] ?></p> <!--Viewing Total Chapter-->
 
-                        <input hidden type="text" id="subject"
-                            value="<?php echo urldecode($count["SubCode"]); //viewing subject name ?>">
+                        <input hidden type="text" id="<?php echo $subject["SubCode"]; //viewing subject code ?>"
+                            value="<?php echo urldecode($count["SubCode"]); //viewing subject code ?>">
                         <!--Hidden input to get the value-->
 
                         <input hidden type="text" id="chapter_code"
@@ -79,15 +97,15 @@ if (isset($_SESSION["username"])) {
 
                     ?>
 
-                    <button onclick="view_queston(<?php echo $subject["ID"]; ?>)" id="view-question" class="button"
-                        type="submit">View</button>
+                    <button onclick="view_queston(<?php echo $subject['ID']; ?>, '<?php echo $subject['SubCode'] ?>')"
+                        id="view-question" class="button" type="submit">View</button>
                 </div>
             </div>
         </div>
 
         <script>
-            function view_queston(id) {
-                const ChapterCode = document.getElementById("chapter_code").value;
+            function view_queston(id, subCode) {
+                const ChapterCode = document.getElementById(subCode).value;
                 const subjectName = document.getElementById(id).innerText;
                 window.open(`components/question_bankQuestion.php?ChCode=${ChapterCode}&subjectName=${subjectName}`, "_blank")
             }; //load the view-question page

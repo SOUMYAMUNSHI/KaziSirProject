@@ -5,12 +5,12 @@ function viewQuestion()
 
     $type = htmlspecialchars($_REQUEST["questionType"]); //Fetching question type, htmlspecialchars() is to filtering the data(to prevent Cross-Site Scripting attack)
     $questionType = "qa_" . $type; //concatinatiing "qa_" to making it as ttable name
-    $chapterCode = htmlspecialchars($_REQUEST["chapterCode"]); //Getting chapterCode from question type htmlspecialchars() is to filtering the data(to prevent Cross-Site Scripting attack)
+    $TopicCode = htmlspecialchars($_REQUEST["TopicCode"]); //Getting chapterCode from question type htmlspecialchars() is to filtering the data(to prevent Cross-Site Scripting attack)
 
-
+    
     try {
-        $questions = $pdo_conn->prepare("SELECT * FROM `$questionType` WHERE `TopicCode` IN (SELECT `TopicCode` FROM `topic` WHERE `ChCode` = :ChCode);"); //preparing query
-        $questions->bindValue(":ChCode", $chapterCode); //bind value
+        $questions = $pdo_conn->prepare("SELECT * FROM `$questionType` WHERE `TopicCode` = :TopicCode"); //preparing query
+        $questions->bindValue(":TopicCode", $TopicCode); //bind value
         $questions->execute(); //executing the statement
 
         ?>
