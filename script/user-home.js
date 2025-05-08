@@ -14,7 +14,7 @@ $("#star-question").click(function () {
 });
 
 $("#admin-pannel").click(function () {
-  $(".view").load("./components/admin-login.html");
+  $(".view").load("./components/admin-login.php");
 });
 
 $("#add_questions").click(function () {
