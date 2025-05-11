@@ -6,5 +6,11 @@
     <title>Admin Page</title>
     <link rel="stylesheet" href="../style/css/bootstrap.min.css"> <!--Including bootsrap compressed file-->
     <link rel="icon" type = "image/png" href="../resource/favicon.png"> 
+    <style>
+        .active{
+           background-color:#385170;
+           border-radius:5px;
+        }
+    </style>
 </head>
 <body>

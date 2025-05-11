@@ -19,10 +19,10 @@ include_once("./header.php"); //Include the header page
             <p class="nav-link active text-white m-0" style="cursor:pointer" id="admin">Admin</p>
           </li>
           <li class="nav-item">
-            <p class="nav-link text-white m-0" style="cursor:pointer">Monitor</p>
+            <p class="nav-link text-white m-0" style="cursor:pointer" id="monitor">Monitor</p>
           </li>
           <li class="nav-item me-4">
-            <p class="nav-link text-white m-0" style="cursor:pointer">Others</p>
+            <p class="nav-link text-white m-0" style="cursor:pointer" id="others">Others</p>
           </li>
         </ul>
       </div>
@@ -39,6 +39,27 @@ include_once("./header.php"); //Include the header page
   <script>
     $(document).ready(()=>{
       $("#container").load("../components/adminComponent.php");
+    });
+
+    $("#monitor").click(()=>{
+      $("#container").load("../components/adminMonitor.php");
+      $("#monitor").addClass("active");
+      $("#admin").removeClass("active");
+      $("#others").removeClass("active");
+    });
+
+    $("#admin").click(()=>{
+      $("#container").load("../components/adminComponent.php");
+      $("#admin").addClass("active");
+      $("#monitor").removeClass("active");
+      $("#others").removeClass("active");
+    });
+
+    $("#others").click(()=>{
+      $("#container").load("../components/adminOthers.php");
+      $("#others").addClass("active");
+      $("#monitor").removeClass("active");
+      $("#admin").removeClass("active");
     });
   </script>
 
