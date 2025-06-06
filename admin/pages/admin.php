@@ -38,7 +38,7 @@ include_once("./header.php"); //Include the header page
   <script src="../javascript/Jquery/jquery-3.7.1.js"></script> <!--Adding jquery-->
   <script>
     $(document).ready(()=>{
-      $("#container").load("../components/adminComponent.php");
+      $("#container").load("../components/selectOption.php");
     });
 
     $("#monitor").click(()=>{
@@ -61,6 +61,7 @@ include_once("./header.php"); //Include the header page
       $("#monitor").removeClass("active");
       $("#admin").removeClass("active");
     });
+    
   </script>
 
 
